@@ -14,8 +14,10 @@ class Content(models.Model):
 
 # child tables
 
+# table for the cities that i visited
+
 class Cities(models.Model):
-    contents = models.ForeignKey(Content, on_delete=models.CASCADE)
+    contents = models.ForeignKey(Content, on_delete=models.CASCADE)   # foreign key from Content table
     cityname = models.CharField(max_length=20)
     citydescription = models.TextField(max_length=2000)
     cityyear = models.CharField(max_length=4)
@@ -24,9 +26,11 @@ class Cities(models.Model):
     def __str__(self):
         return self.cityname + '\n' + self.citydescription + '\n' + self.cityyear + '\n'
 
+# table for the movies/series that impressed me
+
 
 class MoviesSeries(models.Model):
-    contents = models.ForeignKey(Content, on_delete=models.CASCADE)
+    contents = models.ForeignKey(Content, on_delete=models.CASCADE)  # FK based on which url gets redirected to views
     moviename = models.CharField(max_length=100)
     moviedescription = models.TextField(max_length=2000)
     moviequote = models.CharField(max_length=100)
@@ -34,6 +38,8 @@ class MoviesSeries(models.Model):
 
     def __str__(self):
         return self.moviename + '\n' + self.moviequote + '\n' + self.moviedescription
+
+# table for the sport icons
 
 
 class Sports(models.Model):
@@ -45,6 +51,8 @@ class Sports(models.Model):
 
     def __str__(self):
         return self.player + '\n' + self.team + '\n' + self.description
+
+# table for my thoughts
 
 
 class Thoughts(models.Model):
