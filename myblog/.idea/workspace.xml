@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fab61b03-4a54-41a9-9877-670ad8b827f3" name="Default Changelist" comment="" />
+    <list default="true" id="fab61b03-4a54-41a9-9877-670ad8b827f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +21,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bloghomepage/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
@@ -83,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="360">
+              <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -153,16 +155,16 @@
         <option value="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/detail_movies.html" />
         <option value="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/details_sports.html" />
         <option value="$PROJECT_DIR$/bloghomepage/admin.py" />
-        <option value="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html" />
         <option value="$PROJECT_DIR$/bloghomepage/templates/detail_thoughts.html" />
         <option value="$PROJECT_DIR$/bloghomepage/views.py" />
         <option value="$PROJECT_DIR$/bloghomepage/urls.py" />
         <option value="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/detail.html" />
         <option value="$PROJECT_DIR$/bloghomepage/models.py" />
+        <option value="$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="960" />
     <option name="height" value="1030" />
   </component>
@@ -275,7 +277,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17040952" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -317,6 +320,16 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -421,23 +434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bloghomepage/templates/bloghomepage/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bloghomepage/templates/bloghomepage/detail_movies.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -493,6 +489,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="703">
           <caret line="32" column="117" selection-start-line="32" selection-start-column="117" selection-end-line="32" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bloghomepage/templates/bloghomepage/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bloghomepage/templates/bloghomepage/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
         </state>
       </provider>
     </entry>
