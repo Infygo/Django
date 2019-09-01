@@ -6,6 +6,7 @@ from .models import Content, Cities, MoviesSeries, Sports, Thoughts
 
 
 # using only templates and render
+# index home page
 
 def index(request):
     all_content = Content.objects.all()
@@ -14,6 +15,8 @@ def index(request):
     }
 
     return render(request, 'bloghomepage/index.html', context)
+
+# root detail page
 
 
 def detail(request, content_id):
