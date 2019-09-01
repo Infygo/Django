@@ -1,0 +1,29 @@
+<!--this file will basically have the boot strap and glyphicons functionality -->
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang ='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!-- will be linking the static css file here -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'bloghomepage/style.css' %}" >
+<!-- linking the bootstrap CDN link   -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+<!-- nav tag is used to navigage to other pages -->
+<nav class="navbar navbar">
+<!-- div tag encapsulates other page elements and divides the html doc into sections    -->
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'bloghomepage:index' %}">
+            Vigonit -Blogging
+        </a>
+    </div>
+</nav>
+<p style="color:cyan; font-style:italic; font-size:20px">Space for my scriblings, interests, thoughts!!!</p>
+{% block body %}
+{% endblock %}
+</body>
+</html>

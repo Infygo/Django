@@ -1,0 +1,11 @@
+<body style="background-color:#D6EAF8;">
+<p style="color:black;font-style:italic; font-size:20px">
+    <b>This is a page will contain short thoughts, Kirukals I share randomly .. Basicall short writings posts.</b>
+</p>
+<h2>Kirukals</h2>
+{% for tho in all_thoughts %}
+<p style="color:black; font-style:italic; font-size:20px">
+    {{tho.thoughts}}
+</p>
+{% endfor %}
+</body>

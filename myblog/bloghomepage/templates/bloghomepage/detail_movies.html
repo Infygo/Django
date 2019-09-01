@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<body style="background-color:#D6EAF8;">
+<p style="color:black;font-style:italic; font-size:20px">
+    <b>This is a page will contain short descriptions and the stills for the movies/series I enjoyed watching.
+        Also a short review of the movie / series with the famous dialogue or the quote from it.</b>
+</p>
+
+{% for mov in all_movies %}
+<h2>{{mov.moviename}}-{{mov.moviequote}}</h2>
+<p style="color:black; font-style:italic; font-size:20px">
+    {{mov.moviedescription}}
+</p>
+<img src="{{mov.moviepic.url}}" alt="{{mov.moviename}}" height="559" width="370">
+{% endfor %}
+</body>

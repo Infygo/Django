@@ -1,0 +1,300 @@
+Installing Django 
+
+Issues - need to add the path variables correctly 
+powershell set environment 
+$env:path="$env:Path;C:\Users\Vignesh\AppData\Local\Programs\Python\Python37-32"
+
+Mycomp -> properties - Advanced - Environment variables - 
+C:\Users\Vignesh\AppData\Local\Programs\Python\Python37-32   -- python location
+C:\Users\Vignesh\AppData\Local\Programs\Python\Python37-32\Scripts
+
+add .py to path text - My computer 
+
+
+add this path of easy_install to My computer - C:\ProgramData\Anaconda3\Lib\site-packages
+
+Powershell ->as administrator
+  - python --version 
+  - easy_install --version 
+  - easy_install django==1.11.17
+
+----------------------------------------------------------------------------------------------------------
+
+> Cmd prompt - get to the desired folder location 
+mysite is the root directory for the django site 
+
+django-admin startproject mysite
+cd mysite 
+django-admin startapp books
+python manage.py runserver -- allows to create a local server 
+
+>>>>>>>>>>>>>>>>>>>
+
+books apps -- Creation of views -- Frontend 
+>view.py > from django.http import Httpresponse 
+create a request response function 
+
+>urls.py (book) need an url for the books app 
+from . import views  
+urls.py > urlspattern -> r'', views.index, name=index 
+
+>urls.py(mysite)
+include 
+enter the pattern url(r'',include())
+
+*Understanding creation of views -Front end *** 
+> Start with views > create a fun with response and request 
+> need an url > create one > link it to the views of the book > import the view from cd 
+> mainsite url > create the exact pattern match > include books.url > import include 
+> run the server  > type the url with matching 
+
+---------------------------------------------------------------------------------------------------
+
+python manage.py migrate 
+
+*Understanding creation of models - Back end *** 
+books -- Creation of models - Backend 
+> models.py > create a class (models.Model) > add attributes
+> settings.py > add Booksconfig class name taken from apps.py > books.apps.Booksconfig
+> python manage.py makemigrations books 
+> python manage.py sqlmigrate books 0001
+> python manage.py migrate  
+
+instantiate the table with values - from shell - python manage.py shell
+> from books.models import Books 
+> from books.models import Publisher 
+> b = Books()
+  b.name = 'Xxx'
+  b.save()
+
+adding multiple records 
+> add the records and save it 
+> Open models.py and add def _str_(self):
+  return name + author 
+> Books.objects.all()
+> Filter - Books.objects.filter(id=1)
+
+----------------------------------------------------------------------
+
+admin page 
+> python manage.py createsuperuser 
+
+
+-----------------------------------------------------
+> accessing models in admin page 
+
+from .models import Books, Publisher
+admin.site.register(Books)
+
+> username - django pwd - djangounchained 
+
+------------------------------------------------------
+L146 - creating another view 
+
+> add a function in books views.py 
+> add an url in the books.url [as it comes after the book not the admin]
+
+----------------------------------------
+L147 - connecting to the DB 
+
+> views.py -> create an url , fetch all the data from the db using objects.all
+> create hypertext - club the url
+------------------------------------------
+
+L148 - Creating Templates - separates the html from the django code 
+> allows to develop front end and back end separately and then connect them using django 
+> create a directory and name it the same as the root 
+
+> django.template import loader 
+> create a template directory - inside create another directory with same name as the root - create the index html file 
+> template - loader- html file , context- data, template-render-context,request
+> index.html - ul, l, a href 
+
+-------------------------------------------------
+L149 - Render template 
+> from django.shortcuts import render 
+> return render(request,index, context)
+
+--------------------------
+L150 - 404 error 
+> from django.http import Http404
+> check for the id > try exception > template, context and render to new html 
+
+-----------------------------
+L151 - Designing the view 
+> bootstrap and html to make it attractive 
+> not much here 
+
+--------------------------
+L152 - Removing hard coded urlspattern
+index.html - replace the href with  "{%url 'details' book.id%}">{{book.name}}  # namespace was the issue
+
+--------------------
+L153 - Namespaces
+> add app_name = 'books' in urls.py books
+> use that in the details html books:details href tag 
+
+--------------------
+L154 - static files 
+> create static dir - books - style.css - copy image 
+> style.css - body - bg: - url ("/static/image)
+> index.html - add html , head and body tags 
+> head tag - link stylesheet 
+> load static files 
+
+-------------------
+L155 - Navigation bar - use bootstrap 3.3.7
+> using bootstrap - either download it or use the CDN link 
+> index.html -> create nav class navbar , div class container , a class navbar-brand href it to the current home page 
+
+--------------------
+L156 - Navigation bar touchup
+> div class collapse - ul class nav navbar-nav- li class - a href url - span class glyphicon - &nbsp name for it 
+> adding other icons - ul class - li - a href - span 
+
+---------------------
+L157 - Base templates (for the nav bar- for common use across diffferent htmls)
+> create base template - base.html 
+> add the navigation bar code there - block body endblock 
+> extends 'base.html' - block body - existing code - endblock
+------------------------
+L158 - Generic views
+> import generic views
+> class IndexView->listview-> template_name='html path' , get_queryset- data loading, 
+> class DetailsView->detailsview, templatename, models 
+> index.html - object_list 
+> details.html - object.attribute 
+
+-----------------------
+L159 - Design touchup 
+> using bootstrap code 
+> add jumbotrons to index.html 
+> add style.css add the jumbotrons images urls 
+> add code for the details.html as well for the navigation of books 
+> look into the source code 
+-----------------------
+L160 - Form to add books- adding functionality to the glyphicons used 
+> models - import reverse - def get_absolute_url return reverse(details, kwargs=pk)
+> views - import createview - class BookCreate(createview) - model - add fields 
+> add another url for the Bookcreate view 
+------------------------
+L161 - form2 
+> add a new html books_form
+> extend the base , block endblock 
+> add bootstrap stuff - container-row- column- panel 
+> form design- class- action- method - enctype - csrf_token
+
+------------------------------------------------------------------------------------------------------
+
+Section 14
+L163 - using virtual environment 
+> easy_install--version 
+> use the path - Scripts - path for easy_install - My comp - Adv settings - add path to env variables
+>mkdir dpro
+cd dpro
+virtualenv env
+env\Scripts\activate
+cd..
+pip install django
+django-admin startproject photop
+cd photop > django-admin startapp photoapp
+
+----------------
+L164 
+> Download visual studio code
+--------------
+L166 - creating views
+> Views -django View model based backend framework 
+> import httpresponse - to get an response 
+> create a index function - receives request and returns response 
+> How to access the view -> url -> copy the url from the photop
+> url of app -> add the url pattern - view, name -> import the view from photoapp
+> url of proj -> add the exact pattern, include the app url
+---------------
+L167 - Applying migration
+> use - migrate
+----------------
+L168 - Models
+> models.py > class tablename(models.Model)
+----------------
+L169 - Create the table 
+> settings - add the config - photoapp.app.Photoappconfig (taken from the apps of the photoapp folder)
+> makemigrations photoapp 
+> sqlmigrate Photoapp 0001
+> migrate 	
+-----------------
+L170 - add data 
+> use python shell
+> from photoapp.models import Photo
+> create object and add attributes 
+> obj.save()
+> Photo.objects.all() -> Queryset - Photo Object(1) -> has a fix 
+------------------
+L171 - Filtering and display of data in shell 
+> How to make the queryset in shell display values from table - Create a str def in Models- return the attributes you need 
+> filtering - Photo.objects.filter(id=2)
+-------------------
+L172 - Admin page 
+> createsuperuser - admin created
+> Admin page doesnt display the models - import the model-> from .models import Photo > admin.site.register(tablename)
+---------------------
+L173 - Create another View 
+> http://127.0.0.1:8000/photos/ existing url and view directed already 
+> add another url in photoapp.url s.th http://127.0.0.1:8000/photos/1/ - where 1 is the photoid
+> create a def in views and return the response 
+-----------------------
+L174 - Connecting to db 
+> views should list the table values - from .models import Photo
+> The index view should display all the table values - use objects.all()-> loop through it - url with id- html with href photoname as link -return the html 
+-----------------------
+L175 - Templates
+> Templates - handles the html code in a separate file 
+> Photoapp- create new dir -> templates - > new folder again named as Photoapp -> index.html to hold the html code 
+> How to load the template in the views -> from django.template import loader 
+> def index - > template-loads the index.html file, context : - for the data 
+> return - the rendered response with context and request 
+> index.html - retrieve the context data - write the code in {%%}
+--------------------------
+L176 - render
+> to avoid using httpsresponse - use render 
+> import from shortcuts
+> return render(request, path for html, context)
+---------------------------
+L177 - 404 error 
+> import Http404 module from http 
+> create another template for details 
+> def details - try and except - use of objects.get instead of objects.all 
+> add code to details.html 
+----------------------------
+L178 - Design the detail view 
+> retrieve the data in the detail.html 
+> {{photo.name}}
+-----------------------------
+L179 - Removing hardcoded urls 
+> in the index.html - replace with <"{%url 'detail' photo.id%}">{{photo.name}}</a> - which translates to http://127.0.0.1:8000/photos/1/  hyperlinked as Zerogravity photography
+-----------------------------
+L180 - using namespaces 
+> first add the appname add the app_name -> photoapp
+> replace the template files used prefixed with photoapp: template file name 
+------------------------------
+L181 - Static files 
+> add a static folder under app - add image - add css file 
+> in css file link the body with background - url of the image 
+> link the css file in the index.html under header with link rel, href 
+> trigger the server again 
+------------------------------
+L182 - Designing the navbar 
+> bootstrap CDN link - put it in the index.html 
+> body tag - class navbar -> div class container fluid -> a class "navbar-brand" -> href ="{%url indexpage %}"
+> check out the Bootstrap documentation page 
+------------------------------
+L183 - Navg bar touchup 
+> adding elements to the nav bar 
+> collapse - ul nav navbar-nav - li - a href - link -> span class for the glyphicon area-hidden - nbsp - alias name 
+-------------------------------
+
+
+Myblog 
+> Myblog urls - About me, Cities, Movies-Series, Sports 
+> Models - About me[Description, Interests] ,Cites[Name, Description, Date, Image] , Movies-Series[Name, Description , Quotes, Image], Sports [Name, Team , Image]
+> About me - aboutme.url - 

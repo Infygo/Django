@@ -1,0 +1,43 @@
+{% extends 'bloghomepage/base.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<!--implementing the page background color -->
+<link rel="stylesheet" type="text/css" href="bloghomepage/style.css">
+<!--loading the jumbotron image -->
+<!--<div class="col-md-12 jumbotron" >-->
+<ul>
+{% for cont in all_content %}
+    {% if cont.id == 1 %}
+    <li>
+        <a href="{%url 'bloghomepage:detail' cont.id %}">{{cont.content}}</a>
+    </li>
+    {% elif cont.id == 2 %}
+    <li>
+        <a href="{%url 'bloghomepage:detail_cities' cont.id %}">{{cont.content}}</a>
+    </li>
+    {% elif cont.id == 3 %}
+    <li>
+        <a href="{% url 'bloghomepage:detail_movies' cont.id %}">{{cont.content}}</a>
+    </li>
+    {% elif cont.id == 4 %}
+    <li>
+        <a href="{% url 'bloghomepage:detail_sports' cont.id %}">{{cont.content}}</a>
+    </li>
+    {% elif cont.id == 5 %}
+    <li>
+        <a href="{% url 'bloghomepage:detail_thoughts' cont.id %}">{{cont.content}}</a>
+    </li>
+
+</ul>
+{% endif %}
+{% endfor %}
+{% endblock %}
+</body>
+</html>

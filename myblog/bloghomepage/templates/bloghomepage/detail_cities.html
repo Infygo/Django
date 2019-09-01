@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!--html plain code -->
+<body style="background-color:#D6EAF8;">
+<p style="color:black;font-style:italic; font-size:20px">
+    This is a page will contain short descriptions and the images for the cities i have visited, stayed all these years
+</p>
+
+{% for cit in all_cities %}
+<h2>{{cit.cityname}}-{{cit.cityyear}}</h2>
+<p style="color:black; font-style:italic; font-size:20px">
+    {{cit.citydescription}}
+</p>
+<img src="{{cit.citypics.url}}" alt="{{cit.cityname}}">
+{% endfor %}
+</body>
+
+
+<!-- lets do some bootstrapping -->
+
+<!--{% for cit in all_cities %}-->
+<!--<div class="col-lg-3 col-md-4 col-sm-6">-->
+<!--    <div class="thumbnail">-->
+<!--        <img src="{{cit.citypics.url}}" alt="Generic placeholder thumbnail"/>-->
+<!--        <div class="caption">-->
+<!--            <h3>{{cit.cityname}}</h3>-->
+<!--            <h4>{{cit.cityyear}}</h4>-->
+<!--            <button onclick="{{cit.citydescription}}">Details</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% endfor %}-->

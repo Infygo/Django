@@ -1,0 +1,21 @@
+{% extends 'publishers/base.html' %}
+{%block body %}
+
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+
+<ul>
+    {% for publisher in all_publisher %}
+    <li><a href="/publishers/{{publisher.id}}">{{publisher.publisher_name}}</a></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
+{% endblock %}

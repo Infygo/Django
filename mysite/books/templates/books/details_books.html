@@ -1,0 +1,53 @@
+{% extends 'books/base.html' %}  <!--extends should be the first line -->
+{% load staticfiles %}
+<!--{{book}}-->
+
+
+{% block body %}
+<!-- old code1
+<h2>{{object.name}}</h2>
+<h4>{{object.author}}</h4>
+<img src="{{object.book_image}}"/>
+-->
+
+
+
+<!-- old code2
+<img src="{‌{book.book_image}}"/>
+<h1>{‌{book.name}}</h1>
+<h2>{‌{book.author}}</h2>
+<h2>{‌{book.price}}</h2>
+<h2>{‌{book.type}}</h2>
+-->
+
+
+<!-- Bootstrapping -->
+
+
+<div class="col-lg-3 col-md-4 col-sm-6 ">
+      <div class = "thumbnail">
+          <img src="{{object.book_image}}" alt = "Generic placeholder thumbnail"/>
+          <div class = "caption">
+              <h3>{{object.name}}</h3>
+              <h4>{{object.author}}</h4>
+              <p></p>
+          </div>
+      </div>
+</div>
+
+
+
+<div class="col-lg-9 col-md-4 col-sm-6 " >
+      <div class="" >
+          <h3><b>{{object.name}}</b></h3>
+          <p><b>Author:</b>{{object.author}}</p>
+          <p><b>Price:</b>{{object.price}}$</p>
+          <p><b>Category:</b>{{object.type}}</p>
+          <a href = "#" class = "btn btn-danger" role = "button">
+              Read Sample <span class="glyphicon glyphicon-book"></span>
+          </a>
+      </div>
+</div>
+
+
+{% endblock %}

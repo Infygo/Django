@@ -1,0 +1,15 @@
+{% load staticfiles %}
+
+<body style="background-color:#D6EAF8;">
+<p style="color:black;font-style:italic; font-size:20px">
+    <b>This is a page will contain short descriptions  of my favorite teams and the sportpersons I adore.</b>
+</p>
+
+{% for spo in all_sports %}
+<h2>{{spo.player}}-{{spo.team}}</h2>
+<p style="color:black; font-style:italic; font-size:20px">
+    {{spo.description}}
+</p>
+<img src="{{spo.playerpic.url}}" alt="{{spo.player}}" height="559" width="370">
+{% endfor %}
+</body>
