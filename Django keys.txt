@@ -302,3 +302,5 @@ Myblog
 ----------------------------------
 
 Adding something to local_localbranch!!
+
+Adding something to local master > master remote 
